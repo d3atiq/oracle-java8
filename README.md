@@ -1,7 +1,7 @@
 Role Name
 =========
 
-An Ansible role to install and maintain the Oracle JDK 8 on Ubuntu.
+An Ansible role to install and maintain the Oracle Java 8 on Ubuntu.
 
 Requirements
 ------------
