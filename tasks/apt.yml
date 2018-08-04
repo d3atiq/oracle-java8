@@ -1,0 +1,36 @@
+---
+# tasks file for oracle-jdk8 repository and package installation
+
+- name: Add Oracle java apt repository
+  become: true
+  apt_repository:
+    repo: ppa:webupd8team/java
+
+- name: Update apt cache
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install software-properties-common apt package
+  become: true
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - software-properties-common
+
+- name: Configure Oracle license options
+  become: true
+  shell: echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 {{ item }} true"  | debconf-set-selections
+  with_items:
+    - select
+    - seen
+
+- name: Install java 8 apt package
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - oracle-java8-installer
+    - oracle-java8-set-default
+

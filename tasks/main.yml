@@ -1,0 +1,4 @@
+---
+# tasks file for oracle-jdk8
+
+- include_tasks: apt.yml
