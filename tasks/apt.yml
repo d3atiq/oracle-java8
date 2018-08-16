@@ -1,5 +1,5 @@
 ---
-# tasks file for oracle-jdk8 repository and package installation
+# tasks file for oracle-java8 repository and package installation
 
 - name: Add Oracle java apt repository
   become: true
