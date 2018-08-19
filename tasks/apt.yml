@@ -32,4 +32,13 @@
     state: present
   with_items:
     - oracle-java8-installer
+
+- name: Set Java 8 as default
+  become: true
+  when: (set_default_java == "oracle_java8")
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
     - oracle-java8-set-default
+
