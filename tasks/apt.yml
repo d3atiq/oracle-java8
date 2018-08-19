@@ -41,4 +41,3 @@
     state: "{{ present if (set_default_java == 'oracle_java8' else absent}}"
   with_items:
     - oracle-java8-set-default
-
