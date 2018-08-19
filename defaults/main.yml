@@ -1,2 +1,3 @@
 ---
 # defaults file for oracle-java8
+force_default_java: 
