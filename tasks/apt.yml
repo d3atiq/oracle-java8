@@ -33,19 +33,9 @@
   with_items:
     - oracle-java8-installer
 
-- name: Remove Java defaults
-  become: true
-  apt:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - oracle-java8-set-default
-    - oracle-java9-set-default
-    - oracle-java10-set-default
-
 - name: Set Java 8 as default
   become: true
-  when: (set_default_java == "oracle_java8")
+  when: (force_default_java == "oracle_java8")
   apt:
     name: "{{ item }}"
     state: present
