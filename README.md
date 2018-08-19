@@ -26,7 +26,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: server
       roles:
          - role: d3atiq.oracle_java8
-           set_default_java: oracle_java8
+           force_default_java: oracle_java8
 
 License
 -------
