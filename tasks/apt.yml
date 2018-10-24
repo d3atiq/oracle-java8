@@ -14,9 +14,7 @@
 - name: Install software-properties-common apt package
   become: true
   apt:
-    name: "{{ item }}"
-  with_items:
-    - software-properties-common
+    name: software-properties-common
 
 - name: Configure Oracle license options
   become: true
@@ -28,16 +26,12 @@
 - name: Install java 8 apt package
   become: true
   apt:
-    name: "{{ item }}"
+    name: oracle-java8-installer
     state: present
-  with_items:
-    - oracle-java8-installer
 
 - name: Set Java 8 as default
   become: true
   when: (force_default_java == "oracle_java8")
   apt:
-    name: "{{ item }}"
+    name: oracle-java8-set-default
     state: present
-  with_items:
-    - oracle-java8-set-default
